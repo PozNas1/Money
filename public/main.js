@@ -1,34 +1,3 @@
-/*
-
-function convert(value, currencyFrom, currencyTo, date) {
-    let convertedValue = value;
-    if(RateExistence(currencyFrom) && RateExistence(currencyTo)){
-        if(value > 0){
-            if(valid date){
-                let ifrom, ito;
-                for(let i = 1; i < rates.length; i++){
-                    if(valueOfRates[i][0] === currencyFrom)
-                        ifrom = i;
-                }
-                for(let i = 1; i < rates.length; i++){
-                    if(valueOfRates[0][i] === currencyTo)
-                        ito = i;
-                }
-
-                convertedValue *= valueOfRates[ifrom][ito];
-            }
-        }
-    }
-    return convertedValue;
-}
-
-function RateExistence(rate) {
-    if(rates.indexOf(rate) != -1)
-        return true;
-    else return false;
-}
-*/
-
 $( document ).ready(() => {
     $("#datepicker").datepicker({
         dateFormat: "yy-mm-dd",
@@ -40,10 +9,13 @@ $( document ).ready(() => {
             update_function();
         }
     });
+    $("#datepicker").datepicker("setDate", localStorage.getItem("lastUsedDate"));
+    update_function();
 });
 
 function update_function() {
     let currentDate = $( "#datepicker" ).datepicker( "getDate" );
+    localStorage.setItem("lastUsedDate", currentDate);
     fetch('getCurrancyRate?date=' + currentDate.toISOString()).then((response) => {
         return response.json();
     }).then((rates) => {
