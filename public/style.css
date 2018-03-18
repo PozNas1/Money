@@ -1,0 +1,37 @@
+body {
+    background-color:  #FFFAFA;
+}
+
+p {
+    text-align: center;
+    font-size: 50px;
+}
+
+.table {
+    margin: auto;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    text-align: left;
+    border-collapse: separate;
+    border-spacing: 5px;
+    background: #ECE9E0;
+    color: #656665;
+    border: 16px solid #ECE9E0;
+    border-radius: 20px;
+}
+
+.table tr:first-child {
+    background-color: #FFE4E1;
+}
+
+.table td:first-child {
+    background: #FFE4E1;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.table td {
+    padding: 10px 20px;
+    text-align: center;
+    border-bottom: 1px solid #F4EEE8;
+    transition: all 0.5s linear;
+}
